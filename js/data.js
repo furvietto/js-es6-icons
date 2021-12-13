@@ -128,9 +128,18 @@ const animal = [
 // Inizialmente può essere sufficiente stampare dei semplici div, senza alcuno stile, con all'interno l'icona e uno span con il nome. Solamente quando la parte logica è completa, ci dedichiamo al css.
 
 const container = document.querySelector("main")
+const filter = document.querySelector(".filter")
+
+filter.innerHTML += `
+	<select name="" id="change">
+		<option value="all">All</option>
+		<option value="animal">Animal</option>
+		<option value="vegetable">Vegetable</option>
+		<option value="user">User</option>
+	</select>
+`
 
 animal.forEach((element) => {
-
 	container.innerHTML += `
 	<div>
 		<div><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i></div>
