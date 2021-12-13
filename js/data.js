@@ -133,8 +133,86 @@ animal.forEach((element) => {
 
 	container.innerHTML += `
 	<div>
-		<div><i class="${element.family} ${element.prefix}${element.name}"></i></div>
+		<div><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i></div>
 		<div>${element.name}</div>
 	</div>
 	`
+})
+
+
+const select = document.getElementById("change")
+
+
+select.addEventListener("change" , function () {
+	
+	let randomColor = Math.floor(Math.random()*16777215).toString(16);
+
+	const selectValue = select.value;
+
+	if (selectValue == "all") {
+		container.innerHTML = "";
+		
+		animal.forEach((element) => {
+			element.color = "#" + randomColor
+			container.innerHTML += `
+			<div>
+				<div><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i></div>
+				<div>${element.name}</div>
+			</div>
+			`
+		})	
+	}
+
+	else if (selectValue == "animal") {
+		container.innerHTML = "";
+		const animals = animal.filter((element) => {
+			if (element.type == "animal") {
+				return element
+			}
+		})
+		animals.forEach((element) => {
+			element.color = "#" + randomColor
+			container.innerHTML += `
+			<div>
+				<div><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i></div>
+				<div>${element.name}</div>
+			</div>
+			`
+		})
+	}else if (selectValue == "vegetable") {
+		container.innerHTML = "";
+		const animals = animal.filter((element) => {
+			if (element.type == "vegetable") {
+				return element
+			}
+		})
+		animals.forEach((element) => {
+			element.color = "#" + randomColor
+			container.innerHTML += `
+			<div>
+				<div><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i></div>
+				<div>${element.name}</div>
+			</div>
+			`
+		}) 
+		
+	} else if (selectValue == "user") {
+		container.innerHTML = "";
+		const animals = animal.filter((element) => {
+			if (element.type == "user") {
+				return element
+			}
+		})
+		animals.forEach((element) => {
+			element.color = "#" + randomColor
+			container.innerHTML += `
+			<div>
+				<div><i class="${element.family} ${element.prefix}${element.name}" style="color:${element.color}"></i></div>
+				<div>${element.name}</div>
+			</div>
+			`
+		}) 
+		
+	}
+	
 })
