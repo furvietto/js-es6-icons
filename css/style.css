@@ -30,10 +30,14 @@ main > div {
     border-radius: 20px;
     width: 250px;
     height: 130px;
-    background-color: aqua;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+main > div i {
+    font-size: 3em;
 }
 

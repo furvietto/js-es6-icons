@@ -129,9 +129,12 @@ const animal = [
 
 const container = document.querySelector("main")
 
-for (let i = 0; i < animal.length; i++) {
-	const element = animal[i];
+animal.forEach((element) => {
 
-
-	
-}
+	container.innerHTML += `
+	<div>
+		<div><i class="${element.family} ${element.prefix}${element.name}"></i></div>
+		<div>${element.name}</div>
+	</div>
+	`
+})
